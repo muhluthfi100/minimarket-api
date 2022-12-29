@@ -57,7 +57,7 @@ export default class GoodsController {
     try {
         const goods = await Goods.findOrFail(params.id)
         await goods.delete()
-        response.ok({msg : `Data with id = ${params.id} is deleted`})
+        response.ok({msg : `Goods id = ${params.id} deleted`})
     } catch (error) {
         response.badRequest({msg : error})
     }

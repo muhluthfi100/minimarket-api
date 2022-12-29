@@ -6,9 +6,7 @@ export default class UsersController {
   public async index({response}: HttpContextContract) {
 
     try {
-        // const allUser = await User.all()
-        const allUser = await User.query().preload('eachGoods')
-
+        const allUser = await User.all()
         response.ok({msg : 'success', data : allUser})
         
     } catch (error) {
@@ -73,7 +71,7 @@ export default class UsersController {
     try {
         const user = await User.findOrFail(params.id)
         user.delete()
-        response.ok({msg : `User with id = ${params.id} successfully deleted`})
+        response.ok({msg : `User id = ${params.id} deleted`})
     } catch (error) {
         response.badRequest({msg : error})
     }
